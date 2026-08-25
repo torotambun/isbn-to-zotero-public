@@ -1,0 +1,13 @@
+{
+  "name": "ISBN to Zotero Mobile",
+  "short_name": "ISBN → Zotero",
+  "description": "Resolve Indonesian and older book ISBNs and add the correct edition to Zotero.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5efe3",
+  "theme_color": "#f5efe3",
+  "icons": [
+    { "src": "/app-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" },
+    { "src": "/app-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

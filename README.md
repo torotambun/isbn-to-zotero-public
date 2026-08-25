@@ -6,12 +6,14 @@ Author: **Dr. Toronata Tambun**
 
 ## Release status
 
-This repository contains the **experimental v1.2 source candidate** and its tests. It is published for review, teaching, and continued development.
+This repository contains the **experimental v1.2 local source candidate**, a
+**sanitized Mobile version 7 reference edition**, and their tests. It is
+published for review, teaching, and continued development.
 
 - No compiled macOS application, installer, or other downloadable binary is included or approved for distribution.
 - The desktop candidate has not completed Zotero 10 acceptance with a disposable profile, Developer ID signing, notarization, or clean-Mac testing.
-- The field-proven Mobile version 7 production source is deliberately not included. Its exact recovery archive remains private and immutable; see [Mobile version 7 baseline](docs/MOBILE-V7-BASELINE.md).
-- This source repository is not connected to, and cannot deploy, any production Site.
+- The exact field-proven Mobile version 7 recovery archive remains private and immutable. The public `mobile/` tree is a reviewed derivative with the production Sites registration removed; see [Mobile version 7 baseline](docs/MOBILE-V7-BASELINE.md).
+- This source repository is not connected to, and cannot update, any production Site.
 
 ## What v1.2 repairs
 
@@ -30,6 +32,7 @@ This repository contains the **experimental v1.2 source candidate** and its test
 | --- | --- |
 | `python/` | Standard-library Python implementation, browser interface, CLI, and tests |
 | `desktop/` | TypeScript/Bun implementation, tests, and experimental macOS build scripts |
+| `mobile/` | Sanitized Mobile v7 reference source, Web API integration, and tests |
 | `docs/` | Architecture, workflows, testing, Mobile baseline, and release boundaries |
 | `scripts/` | Repository policy and pre-publication credential checks |
 
@@ -55,14 +58,27 @@ bun build src/server.ts --target bun --outdir dist/bundle-check
 
 The optional live-catalogue Python test is skipped unless explicitly enabled. Deterministic tests use fixtures and local simulated services; they do not write to a normal Zotero library.
 
+The Mobile reference requires Node.js 22.13 or later and npm 11 or later. Its
+bounded helper scripts target Linux:
+
+```sh
+cd mobile
+npm run install:ci
+npm test
+npm run lint
+```
+
+See [`mobile/README.md`](mobile/README.md) before entering a Zotero Web API key
+or preparing a separate deployment.
+
 ## Safety and data policy
 
 - The physical book is the authority for title-page, responsibility, edition, printing, date, and extent decisions.
 - Missing bibliographic facts remain blank rather than being guessed.
 - The application listens on `127.0.0.1` by default.
 - Open Library receives only the searched ISBN and, when configured, a public support contact in the client identity.
-- Zotero local-write permission is requested at runtime. The project contains no Zotero credential, API key, Site identifier, portrait, private link, or production deployment binding.
-- Indonesia OneSearch remains an authorized opt-in pending a supported access method or permission. Google Books remains excluded from the combined view.
+- Zotero permission is requested at runtime. The Mobile reference accepts a user-provided Web API key and can remember it in private-device browser storage only when the user chooses that option. The repository contains no Zotero credential, API key, Site identifier, portrait, private link, or production deployment binding.
+- In the maintained local v1.2 candidate, Indonesia OneSearch remains an authorized opt-in pending a supported access method or permission, and Google Books remains excluded from the combined view. The Mobile reference preserves its separately tested three-catalogue workflow.
 
 See [Architecture](docs/ARCHITECTURE.md), [Workflows](docs/WORKFLOWS.md), [Testing](docs/TESTING.md), [Security](SECURITY.md), and [Publication boundaries](docs/PUBLICATION-BOUNDARIES.md).
 

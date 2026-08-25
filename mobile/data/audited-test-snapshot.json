@@ -1,0 +1,2133 @@
+{
+  "tested_at": "2026-08-12T10:42:49.861Z",
+  "results": [
+    {
+      "raw_input": "9789793930152",
+      "valid": true,
+      "isbn10": "9793930152",
+      "isbn13": "9789793930152",
+      "canonical": "9789793930152",
+      "validation_message": "Valid ISBN. ISBN-10 and ISBN-13 forms were searched where conversion is defined.",
+      "source_statuses": [
+        {
+          "source": "Indonesia OneSearch",
+          "ok": true,
+          "records": 3,
+          "message": ""
+        },
+        {
+          "source": "Open Library",
+          "ok": true,
+          "records": 0,
+          "message": "No matching edition record"
+        },
+        {
+          "source": "Google Books",
+          "ok": false,
+          "records": 0,
+          "message": "Source rate limit reached"
+        }
+      ],
+      "records": [
+        {
+          "subtitle": "",
+          "authors": [
+            "Conboy, Ken"
+          ],
+          "editors": [
+            "Danny Raharto",
+            "Pandu Ganesa"
+          ],
+          "translators": [],
+          "publisher": "Pustaka Primatama",
+          "place": "Jakarta",
+          "date": "2007",
+          "edition": "Cet. 3",
+          "num_pages": "",
+          "extent": "",
+          "languages": [
+            "Indonesian",
+            "English"
+          ],
+          "isbns": [
+            "9789793930152",
+            "9793930152"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS1.INLIS000000000019080",
+          "source_url": "https://onesearch.id/Record/IOS1.INLIS000000000019080",
+          "title": "Intel menguak tabir dunia intelijen Indonesia"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "Conboy, Ken"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Pustaka Primatama",
+          "place": "Jakarta",
+          "date": "2008",
+          "edition": "Cet-4",
+          "num_pages": "",
+          "extent": "",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9789793930152",
+            "9793930152"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS13439.INLIS000000000012572",
+          "source_url": "https://onesearch.id/Record/IOS13439.INLIS000000000012572",
+          "title": "Intel : Menguak Tabir Dunia Intelijen Indonesia"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "Ken Conboy"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Pustaka Primata",
+          "place": "",
+          "date": "2007",
+          "edition": "",
+          "num_pages": "",
+          "extent": "xiv+294 hlm. ; 20,5 cm",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9789793930152",
+            "9793930152"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS20507.slims-328",
+          "source_url": "https://onesearch.id/Record/IOS20507.slims-328",
+          "title": "Intel: menguak tabir dunia intelijen indonesia"
+        }
+      ],
+      "choices": [
+        {
+          "choice_id": "edition-46e881bf07",
+          "title_cluster_id": "work-6894d979f3",
+          "title": "Intel: menguak tabir dunia intelijen indonesia",
+          "subtitle": "",
+          "authors": [
+            "Conboy, Ken"
+          ],
+          "editors": [
+            "Danny Raharto",
+            "Pandu Ganesa"
+          ],
+          "translators": [],
+          "publisher": "Pustaka Primatama",
+          "place": "Jakarta",
+          "date": "2007",
+          "edition": "Cet. 3",
+          "num_pages": "",
+          "extent": "xiv+294 hlm. ; 20,5 cm",
+          "languages": [
+            "Indonesian",
+            "English"
+          ],
+          "isbns": [
+            "9789793930152",
+            "9793930152"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "source_records": [
+            {
+              "subtitle": "",
+              "authors": [
+                "Conboy, Ken"
+              ],
+              "editors": [
+                "Danny Raharto",
+                "Pandu Ganesa"
+              ],
+              "translators": [],
+              "publisher": "Pustaka Primatama",
+              "place": "Jakarta",
+              "date": "2007",
+              "edition": "Cet. 3",
+              "num_pages": "",
+              "extent": "",
+              "languages": [
+                "Indonesian",
+                "English"
+              ],
+              "isbns": [
+                "9789793930152",
+                "9793930152"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS1.INLIS000000000019080",
+              "source_url": "https://onesearch.id/Record/IOS1.INLIS000000000019080",
+              "title": "Intel menguak tabir dunia intelijen Indonesia"
+            },
+            {
+              "subtitle": "",
+              "authors": [
+                "Ken Conboy"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "Pustaka Primata",
+              "place": "",
+              "date": "2007",
+              "edition": "",
+              "num_pages": "",
+              "extent": "xiv+294 hlm. ; 20,5 cm",
+              "languages": [
+                "Indonesian"
+              ],
+              "isbns": [
+                "9789793930152",
+                "9793930152"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS20507.slims-328",
+              "source_url": "https://onesearch.id/Record/IOS20507.slims-328",
+              "title": "Intel: menguak tabir dunia intelijen indonesia"
+            }
+          ],
+          "conflicts": {
+            "publisher": [
+              "Pustaka Primatama",
+              "Pustaka Primata"
+            ]
+          },
+          "confidence": "review",
+          "reason": "More than one printing or edition is represented. Match the edition statement and year."
+        },
+        {
+          "choice_id": "edition-b70c30b6b3",
+          "title_cluster_id": "work-6894d979f3",
+          "title": "Intel : Menguak Tabir Dunia Intelijen Indonesia",
+          "subtitle": "",
+          "authors": [
+            "Conboy, Ken"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Pustaka Primatama",
+          "place": "Jakarta",
+          "date": "2008",
+          "edition": "Cet-4",
+          "num_pages": "",
+          "extent": "",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9789793930152",
+            "9793930152"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "source_records": [
+            {
+              "subtitle": "",
+              "authors": [
+                "Conboy, Ken"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "Pustaka Primatama",
+              "place": "Jakarta",
+              "date": "2008",
+              "edition": "Cet-4",
+              "num_pages": "",
+              "extent": "",
+              "languages": [
+                "Indonesian"
+              ],
+              "isbns": [
+                "9789793930152",
+                "9793930152"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS13439.INLIS000000000012572",
+              "source_url": "https://onesearch.id/Record/IOS13439.INLIS000000000012572",
+              "title": "Intel : Menguak Tabir Dunia Intelijen Indonesia"
+            }
+          ],
+          "conflicts": {},
+          "confidence": "review",
+          "reason": "More than one printing or edition is represented. Match the edition statement and year."
+        }
+      ],
+      "state": "multiple_editions",
+      "state_message": "The sources represent multiple printings or editions. Select the physical edition before export.",
+      "recommended_choice_id": null
+    },
+    {
+      "raw_input": "9786029402063",
+      "valid": true,
+      "isbn10": "6029402064",
+      "isbn13": "9786029402063",
+      "canonical": "9786029402063",
+      "validation_message": "Valid ISBN. ISBN-10 and ISBN-13 forms were searched where conversion is defined.",
+      "source_statuses": [
+        {
+          "source": "Indonesia OneSearch",
+          "ok": true,
+          "records": 7,
+          "message": ""
+        },
+        {
+          "source": "Open Library",
+          "ok": true,
+          "records": 0,
+          "message": "No matching edition record"
+        },
+        {
+          "source": "Google Books",
+          "ok": false,
+          "records": 0,
+          "message": "Source rate limit reached"
+        }
+      ],
+      "records": [
+        {
+          "subtitle": "",
+          "authors": [
+            "G.J. Resink"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Komunitas Bambu.Depok",
+          "place": "",
+          "date": "2013",
+          "edition": "",
+          "num_pages": "",
+          "extent": "xix, 361. halaman. : ilustrasi. ; 27 cm.",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9786029402063",
+            "6029402064"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS20520.slims-32904",
+          "source_url": "https://onesearch.id/Record/IOS20520.slims-32904",
+          "title": "Bukan 350 tahun dijajah"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "G.J. Resink"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Komunitas Bambu",
+          "place": "",
+          "date": "2012",
+          "edition": "",
+          "num_pages": "",
+          "extent": "xxxiv + 366 pg; 24 cm",
+          "languages": [],
+          "isbns": [
+            "9786029402063",
+            "6029402064"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS4965.017051",
+          "source_url": "https://onesearch.id/Record/IOS4965.017051",
+          "title": "Bukan 350 Tahun Dijajah"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "Resink, G J"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Alauddin University",
+          "place": "",
+          "date": "2012",
+          "edition": "",
+          "num_pages": "",
+          "extent": "",
+          "languages": [],
+          "isbns": [
+            "9786029402063",
+            "6029402064"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS3490.slims-7906",
+          "source_url": "https://onesearch.id/Record/IOS3490.slims-7906",
+          "title": "Bukan 350 tahun di jajah"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "Resink, G.J"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Komunitas Bambu",
+          "place": "Depok",
+          "date": "2016",
+          "edition": "Printing 3",
+          "num_pages": "",
+          "extent": "",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9786029402063",
+            "6029402064"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS13504.INLIS000000000022293",
+          "source_url": "https://onesearch.id/Record/IOS13504.INLIS000000000022293",
+          "title": "Bukan 350 tahun dijajah = Indonesian history between the myths : essay in legal history and historical theory"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "Resink, G.J"
+          ],
+          "editors": [
+            "Tim Komunitas Bambu"
+          ],
+          "translators": [],
+          "publisher": "Komunitas Bambu",
+          "place": "Depok",
+          "date": "2012",
+          "edition": "Printing 1",
+          "num_pages": "",
+          "extent": "",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9786029402063",
+            "6029402064"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS13402.INLIS000000000013835",
+          "source_url": "https://onesearch.id/Record/IOS13402.INLIS000000000013835",
+          "title": "Bukan 350 Tahun Dijajah"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "Resink, G.J"
+          ],
+          "editors": [
+            "Lapian, A.B"
+          ],
+          "translators": [],
+          "publisher": "Komunitas Bambu",
+          "place": "Depok",
+          "date": "2012",
+          "edition": "",
+          "num_pages": "",
+          "extent": "",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9786029402063",
+            "6029402064"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS1.INLIS000000000565247",
+          "source_url": "https://onesearch.id/Record/IOS1.INLIS000000000565247",
+          "title": "Bukan 350 tahun dijajah"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "G.J. RESINK"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "KOMUNITAS BAMBU",
+          "place": "",
+          "date": "2013",
+          "edition": "",
+          "num_pages": "",
+          "extent": "xxxiv, 366 hlm.; 14,5 x 20,5 cm.",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9786029402063",
+            "6029402064"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS17193.slims-15074",
+          "source_url": "https://onesearch.id/Record/IOS17193.slims-15074",
+          "title": "BUKAN 350 TAHUN DIJAJAH"
+        }
+      ],
+      "choices": [
+        {
+          "choice_id": "edition-346ed6e60e",
+          "title_cluster_id": "work-a7851c413f",
+          "title": "Bukan 350 Tahun Dijajah",
+          "subtitle": "",
+          "authors": [
+            "Resink, G.J"
+          ],
+          "editors": [
+            "Tim Komunitas Bambu"
+          ],
+          "translators": [],
+          "publisher": "Komunitas Bambu",
+          "place": "Depok",
+          "date": "2012",
+          "edition": "Printing 1",
+          "num_pages": "",
+          "extent": "xxxiv + 366 pg; 24 cm",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9786029402063",
+            "6029402064"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "source_records": [
+            {
+              "subtitle": "",
+              "authors": [
+                "Resink, G.J"
+              ],
+              "editors": [
+                "Tim Komunitas Bambu"
+              ],
+              "translators": [],
+              "publisher": "Komunitas Bambu",
+              "place": "Depok",
+              "date": "2012",
+              "edition": "Printing 1",
+              "num_pages": "",
+              "extent": "",
+              "languages": [
+                "Indonesian"
+              ],
+              "isbns": [
+                "9786029402063",
+                "6029402064"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS13402.INLIS000000000013835",
+              "source_url": "https://onesearch.id/Record/IOS13402.INLIS000000000013835",
+              "title": "Bukan 350 Tahun Dijajah"
+            },
+            {
+              "subtitle": "",
+              "authors": [
+                "G.J. Resink"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "Komunitas Bambu",
+              "place": "",
+              "date": "2012",
+              "edition": "",
+              "num_pages": "",
+              "extent": "xxxiv + 366 pg; 24 cm",
+              "languages": [],
+              "isbns": [
+                "9786029402063",
+                "6029402064"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS4965.017051",
+              "source_url": "https://onesearch.id/Record/IOS4965.017051",
+              "title": "Bukan 350 Tahun Dijajah"
+            },
+            {
+              "subtitle": "",
+              "authors": [
+                "Resink, G J"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "Alauddin University",
+              "place": "",
+              "date": "2012",
+              "edition": "",
+              "num_pages": "",
+              "extent": "",
+              "languages": [],
+              "isbns": [
+                "9786029402063",
+                "6029402064"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS3490.slims-7906",
+              "source_url": "https://onesearch.id/Record/IOS3490.slims-7906",
+              "title": "Bukan 350 tahun di jajah"
+            },
+            {
+              "subtitle": "",
+              "authors": [
+                "Resink, G.J"
+              ],
+              "editors": [
+                "Lapian, A.B"
+              ],
+              "translators": [],
+              "publisher": "Komunitas Bambu",
+              "place": "Depok",
+              "date": "2012",
+              "edition": "",
+              "num_pages": "",
+              "extent": "",
+              "languages": [
+                "Indonesian"
+              ],
+              "isbns": [
+                "9786029402063",
+                "6029402064"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS1.INLIS000000000565247",
+              "source_url": "https://onesearch.id/Record/IOS1.INLIS000000000565247",
+              "title": "Bukan 350 tahun dijajah"
+            }
+          ],
+          "conflicts": {
+            "title": [
+              "Bukan 350 Tahun Dijajah",
+              "Bukan 350 tahun di jajah"
+            ],
+            "editors": [
+              "Tim Komunitas Bambu",
+              "Lapian, A.B"
+            ]
+          },
+          "confidence": "review",
+          "reason": "More than one printing or edition is represented. Match the edition statement and year."
+        },
+        {
+          "choice_id": "edition-4c2af2950a",
+          "title_cluster_id": "work-a7851c413f",
+          "title": "Bukan 350 tahun dijajah",
+          "subtitle": "",
+          "authors": [
+            "G.J. Resink"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Komunitas Bambu.Depok",
+          "place": "",
+          "date": "2013",
+          "edition": "",
+          "num_pages": "",
+          "extent": "xix, 361. halaman. : ilustrasi. ; 27 cm.",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9786029402063",
+            "6029402064"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "source_records": [
+            {
+              "subtitle": "",
+              "authors": [
+                "G.J. Resink"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "Komunitas Bambu.Depok",
+              "place": "",
+              "date": "2013",
+              "edition": "",
+              "num_pages": "",
+              "extent": "xix, 361. halaman. : ilustrasi. ; 27 cm.",
+              "languages": [
+                "Indonesian"
+              ],
+              "isbns": [
+                "9786029402063",
+                "6029402064"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS20520.slims-32904",
+              "source_url": "https://onesearch.id/Record/IOS20520.slims-32904",
+              "title": "Bukan 350 tahun dijajah"
+            },
+            {
+              "subtitle": "",
+              "authors": [
+                "G.J. RESINK"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "KOMUNITAS BAMBU",
+              "place": "",
+              "date": "2013",
+              "edition": "",
+              "num_pages": "",
+              "extent": "xxxiv, 366 hlm.; 14,5 x 20,5 cm.",
+              "languages": [
+                "Indonesian"
+              ],
+              "isbns": [
+                "9786029402063",
+                "6029402064"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS17193.slims-15074",
+              "source_url": "https://onesearch.id/Record/IOS17193.slims-15074",
+              "title": "BUKAN 350 TAHUN DIJAJAH"
+            }
+          ],
+          "conflicts": {
+            "publisher": [
+              "Komunitas Bambu.Depok",
+              "KOMUNITAS BAMBU"
+            ],
+            "extent": [
+              "xix, 361. halaman. : ilustrasi. ; 27 cm.",
+              "xxxiv, 366 hlm.; 14,5 x 20,5 cm."
+            ]
+          },
+          "confidence": "review",
+          "reason": "More than one printing or edition is represented. Match the edition statement and year."
+        },
+        {
+          "choice_id": "edition-6d081c815e",
+          "title_cluster_id": "work-a7851c413f",
+          "title": "Bukan 350 tahun dijajah = Indonesian history between the myths : essay in legal history and historical theory",
+          "subtitle": "",
+          "authors": [
+            "Resink, G.J"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Komunitas Bambu",
+          "place": "Depok",
+          "date": "2016",
+          "edition": "Printing 3",
+          "num_pages": "",
+          "extent": "",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9786029402063",
+            "6029402064"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "source_records": [
+            {
+              "subtitle": "",
+              "authors": [
+                "Resink, G.J"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "Komunitas Bambu",
+              "place": "Depok",
+              "date": "2016",
+              "edition": "Printing 3",
+              "num_pages": "",
+              "extent": "",
+              "languages": [
+                "Indonesian"
+              ],
+              "isbns": [
+                "9786029402063",
+                "6029402064"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS13504.INLIS000000000022293",
+              "source_url": "https://onesearch.id/Record/IOS13504.INLIS000000000022293",
+              "title": "Bukan 350 tahun dijajah = Indonesian history between the myths : essay in legal history and historical theory"
+            }
+          ],
+          "conflicts": {},
+          "confidence": "review",
+          "reason": "More than one printing or edition is represented. Match the edition statement and year."
+        }
+      ],
+      "state": "multiple_editions",
+      "state_message": "The sources represent multiple printings or editions. Select the physical edition before export.",
+      "recommended_choice_id": null
+    },
+    {
+      "raw_input": "9786028174886",
+      "valid": true,
+      "isbn10": "6028174882",
+      "isbn13": "9786028174886",
+      "canonical": "9786028174886",
+      "validation_message": "Valid ISBN. ISBN-10 and ISBN-13 forms were searched where conversion is defined.",
+      "source_statuses": [
+        {
+          "source": "Indonesia OneSearch",
+          "ok": true,
+          "records": 7,
+          "message": ""
+        },
+        {
+          "source": "Open Library",
+          "ok": true,
+          "records": 1,
+          "message": ""
+        },
+        {
+          "source": "Google Books",
+          "ok": false,
+          "records": 0,
+          "message": "Source rate limit reached"
+        }
+      ],
+      "records": [
+        {
+          "subtitle": "",
+          "authors": [
+            "Femi Adi Soepomo"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Galangpress",
+          "place": "",
+          "date": "2012",
+          "edition": "",
+          "num_pages": "",
+          "extent": "",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9786028174886",
+            "6028174882"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS21823.slims-1317",
+          "source_url": "https://onesearch.id/Record/IOS21823.slims-1317",
+          "title": "Prabowo"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "Femi Adi Seompeno"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Galangpress",
+          "place": "",
+          "date": "2012",
+          "edition": "",
+          "num_pages": "",
+          "extent": "",
+          "languages": [],
+          "isbns": [
+            "9786028174886",
+            "6028174882"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS2720.slims-5489",
+          "source_url": "https://onesearch.id/Record/IOS2720.slims-5489",
+          "title": "Prabowo Ksatria Pengawal Macan Asia"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "Femi Adi Seompeno"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Galangpress",
+          "place": "",
+          "date": "2012",
+          "edition": "",
+          "num_pages": "",
+          "extent": "",
+          "languages": [],
+          "isbns": [
+            "9786028174886",
+            "6028174882"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS2720.slims-2551",
+          "source_url": "https://onesearch.id/Record/IOS2720.slims-2551",
+          "title": "Prabowo Ksatria Pengawal Macan Asia"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "Femi Adi Seompeno"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Galangpress",
+          "place": "",
+          "date": "2012",
+          "edition": "",
+          "num_pages": "",
+          "extent": "",
+          "languages": [],
+          "isbns": [
+            "9786028174886",
+            "6028174882"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS2720.slims-2560",
+          "source_url": "https://onesearch.id/Record/IOS2720.slims-2560",
+          "title": "Prabowo Ksatria Pengawal Macan Asia"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "femi adi soempeno dkk"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "",
+          "place": "",
+          "date": "",
+          "edition": "",
+          "num_pages": "",
+          "extent": "",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9786028174886",
+            "6028174882"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS2757.slims-36278",
+          "source_url": "https://onesearch.id/Record/IOS2757.slims-36278",
+          "title": "prabowo ksatria pengawal macan asia"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "Femi Adi Soempeno"
+          ],
+          "editors": [
+            "Firlana Laksitasari"
+          ],
+          "translators": [],
+          "publisher": "Galangpress",
+          "place": "Yogyakarta",
+          "date": "2012",
+          "edition": "Cet.1",
+          "num_pages": "",
+          "extent": "",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9786028174886",
+            "6028174882"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS13401.INLIS000000000026420",
+          "source_url": "https://onesearch.id/Record/IOS13401.INLIS000000000026420",
+          "title": "Prabowo Ksatria Pengawal Macan Asia"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "Femi Adi Soempeno"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Galang Press",
+          "place": "",
+          "date": "2012",
+          "edition": "",
+          "num_pages": "",
+          "extent": "272 hlm 22 5 cm",
+          "languages": [],
+          "isbns": [
+            "9786028174886",
+            "6028174882"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS15602.ai:ibra-38812",
+          "source_url": "https://onesearch.id/Record/IOS15602.ai:ibra-38812",
+          "title": "Prabowo Ksatria Pengawal Macan Asia"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "Femi Adi Soempeno",
+            "Firlana Laksitasari"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Galang Press",
+          "place": "Baciro, Yogyakarta",
+          "date": "2012",
+          "edition": "",
+          "num_pages": "273",
+          "extent": "273 p.",
+          "languages": [],
+          "isbns": [
+            "9786028174886",
+            "6028174882"
+          ],
+          "subjects": [
+            "Politics and government",
+            "Political activity"
+          ],
+          "abstract": "",
+          "notes": [
+            "Statement of responsibility: Femi Adi Soempeno dan Firlana Laksitasari",
+            "Rev. ed. of: Prabowo dari Cijantung bergerak ke istana. Includes bibliographical references (p. 247-269)."
+          ],
+          "identifiers": {
+            "LCCN": [
+              "2012321716"
+            ]
+          },
+          "source": "Open Library",
+          "source_id": "OL30673551M",
+          "source_url": "https://openlibrary.org/books/OL30673551M/Prabowo_ksatria_pengawal_macan_Asia",
+          "title": "Prabowo, ksatria pengawal macan Asia"
+        }
+      ],
+      "choices": [
+        {
+          "choice_id": "edition-1435bb76ad",
+          "title_cluster_id": "work-2a208fb59e",
+          "title": "Prabowo Ksatria Pengawal Macan Asia",
+          "subtitle": "",
+          "authors": [
+            "Femi Adi Soempeno",
+            "Firlana Laksitasari"
+          ],
+          "editors": [
+            "Firlana Laksitasari"
+          ],
+          "translators": [],
+          "publisher": "Galang Press",
+          "place": "Baciro, Yogyakarta",
+          "date": "2012",
+          "edition": "Cet.1",
+          "num_pages": "273",
+          "extent": "273 p.",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9786028174886",
+            "6028174882"
+          ],
+          "subjects": [
+            "Politics and government",
+            "Political activity"
+          ],
+          "abstract": "",
+          "notes": [
+            "Statement of responsibility: Femi Adi Soempeno dan Firlana Laksitasari",
+            "Rev. ed. of: Prabowo dari Cijantung bergerak ke istana. Includes bibliographical references (p. 247-269)."
+          ],
+          "source_records": [
+            {
+              "subtitle": "",
+              "authors": [
+                "Femi Adi Soempeno"
+              ],
+              "editors": [
+                "Firlana Laksitasari"
+              ],
+              "translators": [],
+              "publisher": "Galangpress",
+              "place": "Yogyakarta",
+              "date": "2012",
+              "edition": "Cet.1",
+              "num_pages": "",
+              "extent": "",
+              "languages": [
+                "Indonesian"
+              ],
+              "isbns": [
+                "9786028174886",
+                "6028174882"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS13401.INLIS000000000026420",
+              "source_url": "https://onesearch.id/Record/IOS13401.INLIS000000000026420",
+              "title": "Prabowo Ksatria Pengawal Macan Asia"
+            },
+            {
+              "subtitle": "",
+              "authors": [
+                "Femi Adi Soepomo"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "Galangpress",
+              "place": "",
+              "date": "2012",
+              "edition": "",
+              "num_pages": "",
+              "extent": "",
+              "languages": [
+                "Indonesian"
+              ],
+              "isbns": [
+                "9786028174886",
+                "6028174882"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS21823.slims-1317",
+              "source_url": "https://onesearch.id/Record/IOS21823.slims-1317",
+              "title": "Prabowo"
+            },
+            {
+              "subtitle": "",
+              "authors": [
+                "Femi Adi Seompeno"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "Galangpress",
+              "place": "",
+              "date": "2012",
+              "edition": "",
+              "num_pages": "",
+              "extent": "",
+              "languages": [],
+              "isbns": [
+                "9786028174886",
+                "6028174882"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS2720.slims-5489",
+              "source_url": "https://onesearch.id/Record/IOS2720.slims-5489",
+              "title": "Prabowo Ksatria Pengawal Macan Asia"
+            },
+            {
+              "subtitle": "",
+              "authors": [
+                "Femi Adi Seompeno"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "Galangpress",
+              "place": "",
+              "date": "2012",
+              "edition": "",
+              "num_pages": "",
+              "extent": "",
+              "languages": [],
+              "isbns": [
+                "9786028174886",
+                "6028174882"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS2720.slims-2551",
+              "source_url": "https://onesearch.id/Record/IOS2720.slims-2551",
+              "title": "Prabowo Ksatria Pengawal Macan Asia"
+            },
+            {
+              "subtitle": "",
+              "authors": [
+                "Femi Adi Seompeno"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "Galangpress",
+              "place": "",
+              "date": "2012",
+              "edition": "",
+              "num_pages": "",
+              "extent": "",
+              "languages": [],
+              "isbns": [
+                "9786028174886",
+                "6028174882"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS2720.slims-2560",
+              "source_url": "https://onesearch.id/Record/IOS2720.slims-2560",
+              "title": "Prabowo Ksatria Pengawal Macan Asia"
+            },
+            {
+              "subtitle": "",
+              "authors": [
+                "femi adi soempeno dkk"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "",
+              "place": "",
+              "date": "",
+              "edition": "",
+              "num_pages": "",
+              "extent": "",
+              "languages": [
+                "Indonesian"
+              ],
+              "isbns": [
+                "9786028174886",
+                "6028174882"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS2757.slims-36278",
+              "source_url": "https://onesearch.id/Record/IOS2757.slims-36278",
+              "title": "prabowo ksatria pengawal macan asia"
+            },
+            {
+              "subtitle": "",
+              "authors": [
+                "Femi Adi Soempeno"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "Galang Press",
+              "place": "",
+              "date": "2012",
+              "edition": "",
+              "num_pages": "",
+              "extent": "272 hlm 22 5 cm",
+              "languages": [],
+              "isbns": [
+                "9786028174886",
+                "6028174882"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS15602.ai:ibra-38812",
+              "source_url": "https://onesearch.id/Record/IOS15602.ai:ibra-38812",
+              "title": "Prabowo Ksatria Pengawal Macan Asia"
+            },
+            {
+              "subtitle": "",
+              "authors": [
+                "Femi Adi Soempeno",
+                "Firlana Laksitasari"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "Galang Press",
+              "place": "Baciro, Yogyakarta",
+              "date": "2012",
+              "edition": "",
+              "num_pages": "273",
+              "extent": "273 p.",
+              "languages": [],
+              "isbns": [
+                "9786028174886",
+                "6028174882"
+              ],
+              "subjects": [
+                "Politics and government",
+                "Political activity"
+              ],
+              "abstract": "",
+              "notes": [
+                "Statement of responsibility: Femi Adi Soempeno dan Firlana Laksitasari",
+                "Rev. ed. of: Prabowo dari Cijantung bergerak ke istana. Includes bibliographical references (p. 247-269)."
+              ],
+              "identifiers": {
+                "LCCN": [
+                  "2012321716"
+                ]
+              },
+              "source": "Open Library",
+              "source_id": "OL30673551M",
+              "source_url": "https://openlibrary.org/books/OL30673551M/Prabowo_ksatria_pengawal_macan_Asia",
+              "title": "Prabowo, ksatria pengawal macan Asia"
+            }
+          ],
+          "conflicts": {
+            "title": [
+              "Prabowo, ksatria pengawal macan Asia",
+              "Prabowo"
+            ],
+            "authors": [
+              "femi adi soempeno dkk",
+              "Femi Adi Soempeno; Firlana Laksitasari"
+            ],
+            "creator_roles": [
+              "Firlana Laksitasari: reported as both author and editor"
+            ],
+            "publisher": [
+              "Galang Press",
+              "Galangpress"
+            ],
+            "place": [
+              "Baciro, Yogyakarta",
+              "Yogyakarta"
+            ],
+            "extent": [
+              "273 p.",
+              "272 hlm 22 5 cm"
+            ]
+          },
+          "confidence": "review",
+          "reason": "Sources disagree on important bibliographic fields. Inspect the listed conflicts."
+        }
+      ],
+      "state": "review",
+      "state_message": "One candidate was found, but a physical-book check is still required.",
+      "recommended_choice_id": "edition-1435bb76ad"
+    },
+    {
+      "raw_input": "9792704043",
+      "valid": true,
+      "isbn10": "9792704043",
+      "isbn13": "9789792704044",
+      "canonical": "9789792704044",
+      "validation_message": "Valid ISBN. ISBN-10 and ISBN-13 forms were searched where conversion is defined.",
+      "source_statuses": [
+        {
+          "source": "Indonesia OneSearch",
+          "ok": true,
+          "records": 9,
+          "message": ""
+        },
+        {
+          "source": "Open Library",
+          "ok": true,
+          "records": 1,
+          "message": ""
+        },
+        {
+          "source": "Google Books",
+          "ok": false,
+          "records": 0,
+          "message": "Source rate limit reached"
+        }
+      ],
+      "records": [
+        {
+          "subtitle": "",
+          "authors": [
+            "Dodi Mawardi"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "",
+          "place": "",
+          "date": "",
+          "edition": "",
+          "num_pages": "",
+          "extent": "",
+          "languages": [],
+          "isbns": [
+            "9789792704044",
+            "9792704043"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS1.oai:OAI2.kin.perpusnas.go.id:1027994",
+          "source_url": "https://onesearch.id/Record/IOS1.oai:OAI2.kin.perpusnas.go.id:1027994",
+          "title": "Lulus Kuliah Cari Kerja Kuno !!"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "Purwadi"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Hanan pustaka",
+          "place": "Yogyakarta",
+          "date": "2006",
+          "edition": "Printing 1",
+          "num_pages": "",
+          "extent": "",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9789792704044",
+            "9792704043"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS14006.INLIS000000000040950",
+          "source_url": "https://onesearch.id/Record/IOS14006.INLIS000000000040950",
+          "title": "Sejarah Kanjeng Sultan Hamengku Buwono IX"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "Purwadi"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Hanan Pustaka",
+          "place": "",
+          "date": "2006",
+          "edition": "",
+          "num_pages": "",
+          "extent": "vii + 432 pg; 23 / 15 cm",
+          "languages": [],
+          "isbns": [
+            "9789792704044",
+            "9792704043"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS4965.035289",
+          "source_url": "https://onesearch.id/Record/IOS4965.035289",
+          "title": "Sejarah Kanjeng Sultan Hamengku Buwono IX"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "Mawardi, Dodi"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Elex Media Komputindo",
+          "place": "Jakarta",
+          "date": "2007",
+          "edition": "-",
+          "num_pages": "",
+          "extent": "",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9789792704044",
+            "9792704043"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS4670.JATIM000000000076187",
+          "source_url": "https://onesearch.id/Record/IOS4670.JATIM000000000076187",
+          "title": "Lulus kuliah cari kerja ? Kuno ! : tools for success and amazing future"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "Purwadi"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Hanan Pustaka",
+          "place": "Yogyakarta",
+          "date": "2006",
+          "edition": "-",
+          "num_pages": "",
+          "extent": "",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9789792704044",
+            "9792704043"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS4670.JATIM000000000001046",
+          "source_url": "https://onesearch.id/Record/IOS4670.JATIM000000000001046",
+          "title": "Sejarah Kanjeng Sultan Hamengku Buwono IX"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "Purwadi"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Hasan Pustaka",
+          "place": "Yogyakarta",
+          "date": "2006",
+          "edition": "",
+          "num_pages": "",
+          "extent": "",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9789792704044",
+            "9792704043"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS4584.PROGO-03090000000029",
+          "source_url": "https://onesearch.id/Record/IOS4584.PROGO-03090000000029",
+          "title": "Sejarah Kanjeng Sultan Hamengku Buwono IX"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "Purwadi"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Hanan Pustaka",
+          "place": "Jogjakarta",
+          "date": "2006",
+          "edition": "Cet. 1",
+          "num_pages": "",
+          "extent": "",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9789792704044",
+            "9792704043"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS1.INLIS000000000308772",
+          "source_url": "https://onesearch.id/Record/IOS1.INLIS000000000308772",
+          "title": "Sejarah Kanjeng Sultan Hamengku Buwono IX"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "Purwadi"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Hanan Pustaka",
+          "place": "",
+          "date": "2006",
+          "edition": "",
+          "num_pages": "",
+          "extent": "",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9789792704044",
+            "9792704043"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS13001.slims-85114",
+          "source_url": "https://onesearch.id/Record/IOS13001.slims-85114",
+          "title": "Sejarah Kanjeng Sultan Hamengku Buwono IX"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "PURWADI"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Hanan Pustaka",
+          "place": "Yogyakarta",
+          "date": "2006",
+          "edition": "Cet.1",
+          "num_pages": "",
+          "extent": "",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9789792704044",
+            "9792704043"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "identifiers": {},
+          "source": "Indonesia OneSearch",
+          "source_id": "IOS13950.NUTTI-12100000000198",
+          "source_url": "https://onesearch.id/Record/IOS13950.NUTTI-12100000000198",
+          "title": "Sejarah Kanjeng Sultan Hamengku Buwono IX"
+        },
+        {
+          "subtitle": "",
+          "authors": [
+            "Purwadi"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Hanan Pustaka",
+          "place": "Jogjakarta",
+          "date": "2006",
+          "edition": "",
+          "num_pages": "432",
+          "extent": "xi, 432 p.",
+          "languages": [],
+          "isbns": [
+            "9789792704044",
+            "9792704043"
+          ],
+          "subjects": [
+            "History",
+            "Kraton Yogyakarta"
+          ],
+          "abstract": "",
+          "notes": [
+            "Statement of responsibility: Dr. Purwadi ; kata pengantar, Agus Purnomo",
+            "Includes bibliographical references (p. 423-427)."
+          ],
+          "identifiers": {
+            "LCCN": [
+              "2006329945"
+            ]
+          },
+          "source": "Open Library",
+          "source_id": "OL31697628M",
+          "source_url": "https://openlibrary.org/books/OL31697628M/Sejarah_Kanjeng_Sultan_Hamengku_Buwono_IX",
+          "title": "Sejarah Kanjeng Sultan Hamengku Buwono IX"
+        }
+      ],
+      "choices": [
+        {
+          "choice_id": "edition-d46a9a9ae4",
+          "title_cluster_id": "work-e2bc22bb20",
+          "title": "Sejarah Kanjeng Sultan Hamengku Buwono IX",
+          "subtitle": "",
+          "authors": [
+            "Purwadi"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Hanan Pustaka",
+          "place": "Jogjakarta",
+          "date": "2006",
+          "edition": "Printing 1",
+          "num_pages": "432",
+          "extent": "xi, 432 p.",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9789792704044",
+            "9792704043"
+          ],
+          "subjects": [
+            "History",
+            "Kraton Yogyakarta"
+          ],
+          "abstract": "",
+          "notes": [
+            "Statement of responsibility: Dr. Purwadi ; kata pengantar, Agus Purnomo",
+            "Includes bibliographical references (p. 423-427)."
+          ],
+          "source_records": [
+            {
+              "subtitle": "",
+              "authors": [
+                "Purwadi"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "Hanan pustaka",
+              "place": "Yogyakarta",
+              "date": "2006",
+              "edition": "Printing 1",
+              "num_pages": "",
+              "extent": "",
+              "languages": [
+                "Indonesian"
+              ],
+              "isbns": [
+                "9789792704044",
+                "9792704043"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS14006.INLIS000000000040950",
+              "source_url": "https://onesearch.id/Record/IOS14006.INLIS000000000040950",
+              "title": "Sejarah Kanjeng Sultan Hamengku Buwono IX"
+            },
+            {
+              "subtitle": "",
+              "authors": [
+                "Purwadi"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "Hanan Pustaka",
+              "place": "Jogjakarta",
+              "date": "2006",
+              "edition": "Cet. 1",
+              "num_pages": "",
+              "extent": "",
+              "languages": [
+                "Indonesian"
+              ],
+              "isbns": [
+                "9789792704044",
+                "9792704043"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS1.INLIS000000000308772",
+              "source_url": "https://onesearch.id/Record/IOS1.INLIS000000000308772",
+              "title": "Sejarah Kanjeng Sultan Hamengku Buwono IX"
+            },
+            {
+              "subtitle": "",
+              "authors": [
+                "PURWADI"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "Hanan Pustaka",
+              "place": "Yogyakarta",
+              "date": "2006",
+              "edition": "Cet.1",
+              "num_pages": "",
+              "extent": "",
+              "languages": [
+                "Indonesian"
+              ],
+              "isbns": [
+                "9789792704044",
+                "9792704043"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS13950.NUTTI-12100000000198",
+              "source_url": "https://onesearch.id/Record/IOS13950.NUTTI-12100000000198",
+              "title": "Sejarah Kanjeng Sultan Hamengku Buwono IX"
+            },
+            {
+              "subtitle": "",
+              "authors": [
+                "Purwadi"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "Hanan Pustaka",
+              "place": "",
+              "date": "2006",
+              "edition": "",
+              "num_pages": "",
+              "extent": "vii + 432 pg; 23 / 15 cm",
+              "languages": [],
+              "isbns": [
+                "9789792704044",
+                "9792704043"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS4965.035289",
+              "source_url": "https://onesearch.id/Record/IOS4965.035289",
+              "title": "Sejarah Kanjeng Sultan Hamengku Buwono IX"
+            },
+            {
+              "subtitle": "",
+              "authors": [
+                "Purwadi"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "Hanan Pustaka",
+              "place": "Yogyakarta",
+              "date": "2006",
+              "edition": "-",
+              "num_pages": "",
+              "extent": "",
+              "languages": [
+                "Indonesian"
+              ],
+              "isbns": [
+                "9789792704044",
+                "9792704043"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS4670.JATIM000000000001046",
+              "source_url": "https://onesearch.id/Record/IOS4670.JATIM000000000001046",
+              "title": "Sejarah Kanjeng Sultan Hamengku Buwono IX"
+            },
+            {
+              "subtitle": "",
+              "authors": [
+                "Purwadi"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "Hasan Pustaka",
+              "place": "Yogyakarta",
+              "date": "2006",
+              "edition": "",
+              "num_pages": "",
+              "extent": "",
+              "languages": [
+                "Indonesian"
+              ],
+              "isbns": [
+                "9789792704044",
+                "9792704043"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS4584.PROGO-03090000000029",
+              "source_url": "https://onesearch.id/Record/IOS4584.PROGO-03090000000029",
+              "title": "Sejarah Kanjeng Sultan Hamengku Buwono IX"
+            },
+            {
+              "subtitle": "",
+              "authors": [
+                "Purwadi"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "Hanan Pustaka",
+              "place": "",
+              "date": "2006",
+              "edition": "",
+              "num_pages": "",
+              "extent": "",
+              "languages": [
+                "Indonesian"
+              ],
+              "isbns": [
+                "9789792704044",
+                "9792704043"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS13001.slims-85114",
+              "source_url": "https://onesearch.id/Record/IOS13001.slims-85114",
+              "title": "Sejarah Kanjeng Sultan Hamengku Buwono IX"
+            },
+            {
+              "subtitle": "",
+              "authors": [
+                "Purwadi"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "Hanan Pustaka",
+              "place": "Jogjakarta",
+              "date": "2006",
+              "edition": "",
+              "num_pages": "432",
+              "extent": "xi, 432 p.",
+              "languages": [],
+              "isbns": [
+                "9789792704044",
+                "9792704043"
+              ],
+              "subjects": [
+                "History",
+                "Kraton Yogyakarta"
+              ],
+              "abstract": "",
+              "notes": [
+                "Statement of responsibility: Dr. Purwadi ; kata pengantar, Agus Purnomo",
+                "Includes bibliographical references (p. 423-427)."
+              ],
+              "identifiers": {
+                "LCCN": [
+                  "2006329945"
+                ]
+              },
+              "source": "Open Library",
+              "source_id": "OL31697628M",
+              "source_url": "https://openlibrary.org/books/OL31697628M/Sejarah_Kanjeng_Sultan_Hamengku_Buwono_IX",
+              "title": "Sejarah Kanjeng Sultan Hamengku Buwono IX"
+            }
+          ],
+          "conflicts": {
+            "publisher": [
+              "Hanan pustaka",
+              "Hasan Pustaka"
+            ],
+            "place": [
+              "Jogjakarta",
+              "Yogyakarta"
+            ],
+            "extent": [
+              "xi, 432 p.",
+              "vii + 432 pg; 23 / 15 cm"
+            ]
+          },
+          "confidence": "ambiguous",
+          "reason": "This ISBN is attached to more than one distinct title. Match the title page and copyright page."
+        },
+        {
+          "choice_id": "edition-332bfbde5a",
+          "title_cluster_id": "work-31ed9bd5a7",
+          "title": "Lulus kuliah cari kerja ? Kuno ! : tools for success and amazing future",
+          "subtitle": "",
+          "authors": [
+            "Mawardi, Dodi"
+          ],
+          "editors": [],
+          "translators": [],
+          "publisher": "Elex Media Komputindo",
+          "place": "Jakarta",
+          "date": "2007",
+          "edition": "",
+          "num_pages": "",
+          "extent": "",
+          "languages": [
+            "Indonesian"
+          ],
+          "isbns": [
+            "9789792704044",
+            "9792704043"
+          ],
+          "subjects": [],
+          "abstract": "",
+          "notes": [],
+          "source_records": [
+            {
+              "subtitle": "",
+              "authors": [
+                "Mawardi, Dodi"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "Elex Media Komputindo",
+              "place": "Jakarta",
+              "date": "2007",
+              "edition": "-",
+              "num_pages": "",
+              "extent": "",
+              "languages": [
+                "Indonesian"
+              ],
+              "isbns": [
+                "9789792704044",
+                "9792704043"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS4670.JATIM000000000076187",
+              "source_url": "https://onesearch.id/Record/IOS4670.JATIM000000000076187",
+              "title": "Lulus kuliah cari kerja ? Kuno ! : tools for success and amazing future"
+            },
+            {
+              "subtitle": "",
+              "authors": [
+                "Dodi Mawardi"
+              ],
+              "editors": [],
+              "translators": [],
+              "publisher": "",
+              "place": "",
+              "date": "",
+              "edition": "",
+              "num_pages": "",
+              "extent": "",
+              "languages": [],
+              "isbns": [
+                "9789792704044",
+                "9792704043"
+              ],
+              "subjects": [],
+              "abstract": "",
+              "notes": [],
+              "identifiers": {},
+              "source": "Indonesia OneSearch",
+              "source_id": "IOS1.oai:OAI2.kin.perpusnas.go.id:1027994",
+              "source_url": "https://onesearch.id/Record/IOS1.oai:OAI2.kin.perpusnas.go.id:1027994",
+              "title": "Lulus Kuliah Cari Kerja Kuno !!"
+            }
+          ],
+          "conflicts": {
+            "title": [
+              "Lulus kuliah cari kerja ? Kuno ! : tools for success and amazing future",
+              "Lulus Kuliah Cari Kerja Kuno !!"
+            ]
+          },
+          "confidence": "ambiguous",
+          "reason": "This ISBN is attached to more than one distinct title. Match the title page and copyright page."
+        }
+      ],
+      "state": "ambiguous_title",
+      "state_message": "The identifier is linked to multiple titles. Select only after matching the physical title and copyright pages.",
+      "recommended_choice_id": null
+    }
+  ]
+}
