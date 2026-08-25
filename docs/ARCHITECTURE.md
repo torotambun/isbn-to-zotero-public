@@ -2,12 +2,17 @@
 
 ## Maintained v1.2 system
 
-The public source contains two local implementations of the same evidence-first workflow:
+The public source contains two local implementations and one sanitized hosted
+reference implementation of the same evidence-first workflow:
 
 1. A Python 3.10+ resolver with a standard-library web server, command-line interface, browser UI, RIS output, and local Zotero adapter.
 2. A TypeScript/Bun desktop resolver that embeds the same browser assets and can be compiled into an experimental macOS application.
+3. A TypeScript/React Mobile v7 reference that uses server routes for catalogue
+   search and the Zotero Web API. Its production hosting registration is not
+   included.
 
-The exact Mobile version 7 production recovery is a separate private baseline and is not part of this repository.
+The exact Mobile version 7 production recovery and its Git history remain a
+separate private baseline. `mobile/` is the reviewed public derivative.
 
 ```mermaid
 flowchart LR
@@ -44,6 +49,11 @@ flowchart LR
 | Zotero local API | `isbn_zotero/zotero_local.py` | `src/zotero.ts` |
 | Local HTTP/UI | `isbn_zotero/webapp.py`, `static/` | `src/server.ts`, embedded assets |
 
+The Mobile reference keeps its resolver in `mobile/lib/resolver.ts`, RIS output
+in `mobile/lib/ris.ts`, Zotero Web API adapter in
+`mobile/lib/zotero-cloud.ts`, server routes in `mobile/app/api/`, and responsive
+interface in `mobile/app/page.tsx`.
+
 ## Trust boundaries
 
 ```mermaid
@@ -67,4 +77,4 @@ flowchart TB
 - The physical book and informed human choice are the final authority.
 - Browser state is not a security boundary; required acknowledgements are enforced by server logic.
 - RIS and direct Zotero writes are output adapters over the same reviewed record.
-- The public source contains no hosting manifest or production deployment connection.
+- The public source contains no production hosting manifest or deployment connection.

@@ -8,6 +8,8 @@
 | TypeScript/Bun suite | 19 pass |
 | TypeScript strict type check | Pass |
 | TypeScript production bundle | Pass |
+| Sanitized Mobile v7 lint and build | Pass |
+| Sanitized Mobile v7 deterministic tests | 9 pass |
 | Repository policy and credential scan | Pass |
 
 The tests cover ISBN validation and conversion, manifestation separation, RIS output, distinct-source confidence, physical-confirmation enforcement, local Zotero token shape, duplicate protection, cache migration, source defaults, pacing, and local HTTP routes.
@@ -27,7 +29,15 @@ bun install --frozen-lockfile
 bun run typecheck
 bun test
 bun build src/server.ts --target bun --outdir dist/bundle-check
+
+cd ../mobile
+npm run install:ci
+npm test
+npm run lint
 ```
+
+Mobile tests use local simulated fetch responses for catalogue and Zotero Web
+API behavior. They do not contain a key or write to a normal library.
 
 ## Remaining desktop-distribution acceptance
 

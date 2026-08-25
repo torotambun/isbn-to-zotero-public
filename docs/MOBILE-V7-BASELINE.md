@@ -2,9 +2,19 @@
 
 ## Decision
 
-The exact Mobile version 7 source is **not included** in this public source preview.
+The exact Mobile version 7 recovery archive remains **private and immutable**.
+This repository now includes a separately reviewed public derivative under
+`mobile/`.
 
-The private recovery archive is an immutable production baseline. It includes a hosting manifest and implements a personal, credential-dependent Zotero Web API write path. Redacting that archive would make it no longer exact; publishing it unchanged would expose production metadata and broaden the security review. The archive therefore remains in restricted storage for provenance and comparison.
+The private recovery archive includes the production hosting manifest and the
+complete seven-commit source history. Publishing it unchanged would expose
+production metadata. Redacting that archive would make it no longer exact, so
+it remains in restricted storage for provenance and comparison.
+
+The `mobile/` directory is a source-only derivative of the recovered head
+commit. Its production Sites manifest and project identifier are absent, its
+build accepts that intentional omission, and its documentation explains the
+runtime Zotero-key trust boundary. It cannot update the live Site.
 
 ## What can be stated publicly
 
@@ -12,8 +22,16 @@ The private recovery archive is an immutable production baseline. It includes a 
 - It sends a selected record directly to Zotero using a write-enabled credential provided by the user at runtime.
 - No credential was embedded in the recovered source.
 - The production Mobile Site was not edited, republished, disconnected, or otherwise changed during recovery or public-readiness work.
-- This repository neither contains nor deploys that production source.
+- This repository contains no production hosting registration and does not
+  deploy or update the live Site.
 
-## Future public Mobile code
+## Public Mobile boundary
 
-A Mobile implementation may be published later as a separate sanitized reference project after its credential storage, privacy disclosure, hosting configuration, and third-party service use receive a dedicated review. It must not replace or modify the preserved production baseline merely to make publication easier.
+A user may provide a Zotero Web API key at runtime. The application server uses
+it transiently for Zotero requests and does not persist it. If the user selects
+the remember option, the browser stores it locally on that device. The public
+README warns users to trust the deployment operator, use HTTPS, grant only the
+needed personal-library permissions, and revoke the key if necessary.
+
+The sanitized derivative must never replace or modify the preserved production
+baseline merely to make publication easier.
