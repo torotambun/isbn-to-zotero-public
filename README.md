@@ -1,0 +1,71 @@
+# ISBN to Zotero
+
+ISBN to Zotero is an edition-aware, human-governed ISBN resolver for Indonesian and older books. It validates the identifier, keeps catalogue disagreements visible, separates edition from printing/cetakan, and lets the user review the physical book before producing RIS or attempting a local Zotero write.
+
+Author: **Dr. Toronata Tambun**
+
+## Release status
+
+This repository contains the **experimental v1.2 source candidate** and its tests. It is published for review, teaching, and continued development.
+
+- No compiled macOS application, installer, or other downloadable binary is included or approved for distribution.
+- The desktop candidate has not completed Zotero 10 acceptance with a disposable profile, Developer ID signing, notarization, or clean-Mac testing.
+- The field-proven Mobile version 7 production source is deliberately not included. Its exact recovery archive remains private and immutable; see [Mobile version 7 baseline](docs/MOBILE-V7-BASELINE.md).
+- This source repository is not connected to, and cannot deploy, any production Site.
+
+## What v1.2 repairs
+
+1. Generates conforming 32-character Zotero write tokens.
+2. Represents edition and printing/cetakan separately.
+3. Enforces physical-book confirmation in the server before review records can be exported or written.
+4. Requires agreement from distinct catalogue sources before assigning high confidence.
+5. Detects likely legacy Zotero duplicates even when an existing item has no ISBN.
+6. Resolves embedded desktop assets independently of the launch directory.
+7. Uses Open Library as the only default catalogue, with identification, pacing, and a one-day cache.
+8. Keeps Indonesia OneSearch disabled by default and Google Books outside the combined result view.
+
+## Repository layout
+
+| Path | Purpose |
+| --- | --- |
+| `python/` | Standard-library Python implementation, browser interface, CLI, and tests |
+| `desktop/` | TypeScript/Bun implementation, tests, and experimental macOS build scripts |
+| `docs/` | Architecture, workflows, testing, Mobile baseline, and release boundaries |
+| `scripts/` | Repository policy and pre-publication credential checks |
+
+## Run and test
+
+Python requires Python 3.10 or later and has no runtime package dependencies:
+
+```sh
+cd python
+python3 -m unittest discover -s tests -v
+python3 start.py
+```
+
+The desktop source uses Bun 1.3.14 and TypeScript 7.0.2:
+
+```sh
+cd desktop
+bun install --frozen-lockfile
+bun run typecheck
+bun test
+bun build src/server.ts --target bun --outdir dist/bundle-check
+```
+
+The optional live-catalogue Python test is skipped unless explicitly enabled. Deterministic tests use fixtures and local simulated services; they do not write to a normal Zotero library.
+
+## Safety and data policy
+
+- The physical book is the authority for title-page, responsibility, edition, printing, date, and extent decisions.
+- Missing bibliographic facts remain blank rather than being guessed.
+- The application listens on `127.0.0.1` by default.
+- Open Library receives only the searched ISBN and, when configured, a public support contact in the client identity.
+- Zotero local-write permission is requested at runtime. The project contains no Zotero credential, API key, Site identifier, portrait, private link, or production deployment binding.
+- Indonesia OneSearch remains an authorized opt-in pending a supported access method or permission. Google Books remains excluded from the combined view.
+
+See [Architecture](docs/ARCHITECTURE.md), [Workflows](docs/WORKFLOWS.md), [Testing](docs/TESTING.md), [Security](SECURITY.md), and [Publication boundaries](docs/PUBLICATION-BOUNDARIES.md).
+
+## License
+
+The project source is offered under the [MIT License](LICENSE). Third-party components and services retain their own licenses and terms; see [Third-Party Notices](THIRD-PARTY-NOTICES.md).
