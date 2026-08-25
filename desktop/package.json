@@ -1,0 +1,21 @@
+{
+  "name": "isbn-to-zotero-desktop",
+  "version": "1.2.0",
+  "description": "Experimental edition-aware ISBN resolver for Indonesian and older books",
+  "author": "Dr. Toronata Tambun",
+  "license": "MIT",
+  "private": true,
+  "packageManager": "bun@1.3.14",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run src/server.ts --no-open",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "build:linux": "bun build --compile --minify src/server.ts --outfile dist/isbn-to-zotero-linux",
+    "package:mac": "bun run build/package-macos.ts"
+  },
+  "devDependencies": {
+    "bun-types": "1.3.14",
+    "typescript": "7.0.2"
+  }
+}
