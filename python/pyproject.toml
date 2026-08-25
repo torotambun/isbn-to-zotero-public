@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "isbn-to-zotero"
+version = "1.2.0"
+description = "Edition-aware ISBN resolver for Indonesian and older books"
+authors = [{ name = "Dr. Toronata Tambun" }]
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+isbn-to-zotero = "isbn_zotero.cli:main"
+isbn-to-zotero-web = "isbn_zotero.webapp:main"
+
+[tool.setuptools.package-data]
+isbn_zotero = ["static/*"]
