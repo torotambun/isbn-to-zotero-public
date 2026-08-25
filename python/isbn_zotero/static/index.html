@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ISBN to Zotero</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Edition-aware resolver</p>
+      <h1>ISBN to Zotero</h1>
+      <p>Built for Indonesian and older books. No metadata is invented. Conflicts remain visible.</p>
+    </header>
+
+    <section class="search-panel">
+      <label for="isbn-input">Scan a barcode, paste one ISBN, or paste a list</label>
+      <textarea id="isbn-input" rows="5" spellcheck="false" placeholder="9789793930152&#10;9786029402063"></textarea>
+      <div class="actions">
+        <button id="search-button" class="primary">Search all sources</button>
+        <button id="refresh-button" class="secondary" title="Ignore the one-day local cache">Refresh sources</button>
+        <span id="status" role="status"></span>
+      </div>
+      <p id="zotero-status" class="hint">Checking direct Zotero access…</p>
+      <p class="hint">A USB or Bluetooth barcode scanner normally types the ISBN here and sends Enter. One ISBN on Enter starts a search.</p>
+      <details class="service-policy">
+        <summary>Catalogue service policy</summary>
+        <p>Open Library is enabled and paced conservatively. Add <code>OPEN_LIBRARY_CONTACT</code> to identify regular requests.</p>
+        <p>Indonesia OneSearch is disabled by default until supported access is confirmed. It can be enabled for authorized private use with <code>ISBN_ZOTERO_ENABLE_ONESEARCH=1</code>.</p>
+        <p>Google Books is not queried in this combined catalogue view because its current branding rules prohibit intermixing its results with third-party results.</p>
+      </details>
+    </section>
+
+    <section id="results" aria-live="polite"></section>
+  </main>
+  <template id="result-template"></template>
+  <script src="/app.js"></script>
+</body>
+</html>
