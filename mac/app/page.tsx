@@ -21,8 +21,9 @@ import {
 import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { bookToRIS, safeFilename } from "../lib/ris";
+import { manualBook, type ManualBookFields } from "../lib/manual-book";
 import { perpusnasISBNURL } from "../lib/perpusnas";
-import type { ReconciledBook, Resolution } from "../lib/types";
+import type { BookSearchInput, ReconciledBook, Resolution } from "../lib/types";
 import { worldCatISBNURL } from "../lib/worldcat";
 
 const TEST_ISBNS = ["9789793930152", "9786029402063", "9786028174886", "9792704043"];
@@ -32,6 +33,7 @@ const COLLECTION_STORAGE = "isbn-zotero-collection-v1";
 const COLLECTION_PATH_STORAGE = "isbn-zotero-collection-path-v1";
 
 type Notice = { kind: "success" | "error"; text: string } | null;
+type SearchMode = "isbn" | "no-isbn";
 type Profile = { username: string; userID: string };
 type ZoteroCollection = {
   key: string;
@@ -61,9 +63,66 @@ type ZoteroCreateResult = {
   matches?: ZoteroDuplicateMatch[];
 };
 
-function resultTitle(state: Resolution["state"]): string {
+const EMPTY_BOOK_QUERY: BookSearchInput = { title: "", author: "", publisher: "", year: "" };
+const EMPTY_MANUAL: ManualBookFields = {
+  title: "",
+  subtitle: "",
+  authors: "",
+  editors: "",
+  translators: "",
+  publisher: "",
+  place: "",
+  date: "",
+  edition: "",
+  series: "",
+  series_number: "",
+  volume: "",
+  number_of_volumes: "",
+  num_pages: "",
+  extent: "",
+  language: "Indonesian",
+};
+
+const MANUAL_FIELDS: Array<{
+  key: keyof ManualBookFields;
+  label: string;
+  placeholder: string;
+  wide?: boolean;
+}> = [
+  { key: "title", label: "Title", placeholder: "Exactly as printed on the title page", wide: true },
+  { key: "subtitle", label: "Subtitle", placeholder: "Leave blank if absent", wide: true },
+  { key: "authors", label: "Authors", placeholder: "Separate several names with semicolons", wide: true },
+  { key: "editors", label: "Editors", placeholder: "Separate several names with semicolons" },
+  { key: "translators", label: "Translators", placeholder: "Separate several names with semicolons" },
+  { key: "publisher", label: "Publisher", placeholder: "Publisher printed in this copy" },
+  { key: "place", label: "Publication place", placeholder: "City" },
+  { key: "date", label: "Publication date", placeholder: "Year or date printed in this copy" },
+  { key: "edition", label: "Edition or printing", placeholder: "For example: Cetakan ke-3" },
+  { key: "num_pages", label: "Number of pages", placeholder: "Arabic-numbered pages" },
+  { key: "extent", label: "Physical extent", placeholder: "For example: xii + 284 hlm.; 23 cm", wide: true },
+  { key: "series", label: "Series title", placeholder: "Leave blank if absent" },
+  { key: "series_number", label: "Series number", placeholder: "Leave blank if absent" },
+  { key: "volume", label: "Volume", placeholder: "Volume number for this book" },
+  { key: "number_of_volumes", label: "Number of volumes", placeholder: "Total volumes in the set" },
+  { key: "language", label: "Language", placeholder: "For example: Indonesian" },
+];
+
+function resultTitle(state: Resolution["state"], mode: SearchMode): string {
+  if (mode === "no-isbn") {
+    const labels: Record<Resolution["state"], string> = {
+      invalid: "The title search is not valid",
+      source_unavailable: "Catalogues could not be reached",
+      not_found: "No plausible catalogue record found",
+      ambiguous_title: "Different titles or variants were found",
+      multiple_editions: "Several possible physical editions found",
+      ready: "One catalogue candidate found",
+      review: "Catalogue candidates need a book check",
+    };
+    return labels[state];
+  }
   const labels: Record<Resolution["state"], string> = {
     invalid: "The ISBN is not valid",
+    source_unavailable: "Catalogues could not be reached",
     not_found: "No verified record found",
     ambiguous_title: "The ISBN is linked to different titles",
     multiple_editions: "Several physical editions found",
@@ -73,22 +132,12 @@ function resultTitle(state: Resolution["state"]): string {
   return labels[state];
 }
 
-function editionLine(book: ReconciledBook): string {
-  return [
-    book.edition,
-    book.date,
-    book.publisher,
-    book.place,
-    book.extent || (book.num_pages ? `${book.num_pages} pages` : ""),
-  ].filter(Boolean).join(" · ");
-}
-
 function CatalogueFallback({ isbn }: { isbn: string }) {
   return (
     <aside className="catalogue-fallback" aria-label="Separate Indonesian and international catalogue checks">
       <div>
         <strong>Check Perpusnas first</strong>
-        <p>Perpusnas may hold an official Indonesian ISBN record missed by the automatic sources. Note the exact title, then open ISBN to Zotero Mac and search by title. Check WorldCat only if Perpusnas also has no record. These pages do not import metadata automatically.</p>
+        <p>Perpusnas may identify an Indonesian book missed by the automatic sources. Note the exact title, return here, and search it under No ISBN. Check WorldCat only if Perpusnas also has no record. Neither page imports metadata automatically.</p>
       </div>
       <div className="catalogue-fallback-actions">
         <a href={perpusnasISBNURL(isbn)} target="_blank" rel="noopener noreferrer">
@@ -100,6 +149,16 @@ function CatalogueFallback({ isbn }: { isbn: string }) {
       </div>
     </aside>
   );
+}
+
+function editionLine(book: ReconciledBook): string {
+  return [
+    book.edition,
+    book.date,
+    book.publisher,
+    book.place,
+    book.extent || (book.num_pages ? `${book.num_pages} pages` : ""),
+  ].filter(Boolean).join(" · ");
 }
 
 function EditionCard({
@@ -138,15 +197,25 @@ function EditionCard({
         </div>
       ) : null}
       <div className="evidence">
-        <span>{book.source_records.length} matching record{book.source_records.length === 1 ? "" : "s"}</span>
-        <span>{sources.join(" + ")}</span>
+        {book.source_records.length ? (
+          <>
+            <span>{book.source_records.length} matching record{book.source_records.length === 1 ? "" : "s"}</span>
+            <span>{sources.join(" + ")}</span>
+          </>
+        ) : (
+          <span>Verified physical-book transcription</span>
+        )}
       </div>
     </button>
   );
 }
 
 export default function Home() {
+  const [mode, setMode] = useState<SearchMode>("isbn");
   const [isbn, setISBN] = useState("");
+  const [bookQuery, setBookQuery] = useState<BookSearchInput>(EMPTY_BOOK_QUERY);
+  const [manualFields, setManualFields] = useState<ManualBookFields>(EMPTY_MANUAL);
+  const [manualOpen, setManualOpen] = useState(false);
   const [resolution, setResolution] = useState<Resolution | null>(null);
   const [selectedID, setSelectedID] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -169,6 +238,7 @@ export default function Home() {
   const [duplicateMatches, setDuplicateMatches] = useState<ZoteroDuplicateMatch[]>([]);
   const [duplicateChoice, setDuplicateChoice] = useState("");
   const isbnInputRef = useRef<HTMLInputElement>(null);
+  const titleInputRef = useRef<HTMLInputElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const loadCollections = useCallback(async (key: string) => {
@@ -262,6 +332,43 @@ export default function Home() {
     }
   }, []);
 
+  const lookupTitle = useCallback(async (value: BookSearchInput) => {
+    const query = {
+      title: value.title.trim(),
+      author: value.author.trim(),
+      publisher: value.publisher.trim(),
+      year: value.year.trim(),
+    };
+    if (query.title.length < 3) {
+      setNotice({ kind: "error", text: "Enter at least three title characters from the physical book." });
+      return;
+    }
+    setBookQuery(query);
+    setLoading(true);
+    setResolution(null);
+    setSelectedID(null);
+    setManualOpen(false);
+    setDuplicateOpen(false);
+    setDuplicateMatches([]);
+    setDuplicateChoice("");
+    setNotice(null);
+    try {
+      const response = await fetch("/api/search-book", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(query),
+      });
+      const data = (await response.json()) as Resolution & { error?: string };
+      if (!response.ok) throw new Error(data.error || "The title search failed.");
+      setResolution(data);
+      setSelectedID(null);
+    } catch (error) {
+      setNotice({ kind: "error", text: error instanceof Error ? error.message : "The title search failed." });
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
   useEffect(() => {
     if (!scannerOpen || !videoRef.current) return;
     let active = true;
@@ -303,6 +410,11 @@ export default function Home() {
     void lookup(isbn);
   };
 
+  const submitBookSearch = (event: FormEvent) => {
+    event.preventDefault();
+    void lookupTitle(bookQuery);
+  };
+
   const appendISBN10X = () => {
     const bare = isbn.toUpperCase().replace(/[^0-9X]/g, "");
     if (!/^\d{9}$/.test(bare)) return;
@@ -312,16 +424,73 @@ export default function Home() {
 
   const startNewSearch = () => {
     setISBN("");
+    setBookQuery(EMPTY_BOOK_QUERY);
     setResolution(null);
     setSelectedID(null);
+    setManualOpen(false);
     setNotice(null);
     setDuplicateOpen(false);
     setDuplicateMatches([]);
     setDuplicateChoice("");
     requestAnimationFrame(() => {
-      isbnInputRef.current?.focus();
-      isbnInputRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      const input = mode === "isbn" ? isbnInputRef.current : titleInputRef.current;
+      input?.focus();
+      input?.scrollIntoView({ behavior: "smooth", block: "center" });
     });
+  };
+
+  const switchMode = (nextMode: SearchMode) => {
+    if (nextMode === mode) return;
+    setMode(nextMode);
+    setISBN("");
+    setBookQuery(EMPTY_BOOK_QUERY);
+    setResolution(null);
+    setSelectedID(null);
+    setManualOpen(false);
+    setDuplicateOpen(false);
+    setDuplicateMatches([]);
+    setDuplicateChoice("");
+    setNotice(null);
+    requestAnimationFrame(() => {
+      (nextMode === "isbn" ? isbnInputRef.current : titleInputRef.current)?.focus();
+    });
+  };
+
+  const openManualEntry = () => {
+    setManualFields({
+      ...EMPTY_MANUAL,
+      title: bookQuery.title,
+      authors: bookQuery.author,
+      publisher: bookQuery.publisher,
+      date: bookQuery.year,
+    });
+    setManualOpen(true);
+  };
+
+  const prepareManualRecord = (event: FormEvent) => {
+    event.preventDefault();
+    try {
+      const book = manualBook(manualFields);
+      setResolution({
+        raw_input: book.title,
+        valid: true,
+        isbn10: null,
+        isbn13: null,
+        canonical: null,
+        validation_message: "Manual physical-book record prepared.",
+        source_statuses: [],
+        records: [],
+        choices: [book],
+        state: "review",
+        state_message: "This record came from manual transcription. Confirm every populated field against the title and copyright pages.",
+        recommended_choice_id: book.choice_id,
+      });
+      setSelectedID(book.choice_id);
+      setManualOpen(false);
+      setNotice({ kind: "success", text: "Manual record prepared. Review it before checking Zotero." });
+    } catch (error) {
+      setNotice({ kind: "error", text: error instanceof Error ? error.message : "The manual record is incomplete." });
+    }
   };
 
   const exportRIS = async () => {
@@ -503,7 +672,7 @@ export default function Home() {
       <header className="topbar">
         <a className="brand" href="#top">
           <span className="brand-mark"><BookOpen size={20} /></span>
-          <span>ISBN → Zotero</span>
+          <span>Book → Zotero Mac</span>
         </a>
         <button className="connect" type="button" onClick={() => setSetupOpen(true)}>
           <span className={`connection-dot ${profile ? "online" : ""}`} />
@@ -513,51 +682,81 @@ export default function Home() {
       </header>
 
       <section className="hero" id="top">
-        <p className="eyebrow">For Indonesian and older books</p>
-        <h1>Scan the book.<br />Keep the right edition.</h1>
-        <p className="intro">Search several catalogues, compare physical editions, then add the selected record to Zotero.</p>
-        <form className="search-card" onSubmit={submit}>
-          <label htmlFor="isbn">ISBN or barcode number</label>
-          <div className="isbn-row">
-            <input
-              ref={isbnInputRef}
-              id="isbn"
-              inputMode="numeric"
-              enterKeyHint="search"
-              autoComplete="off"
-              autoCapitalize="characters"
-              spellCheck={false}
-              aria-describedby="isbn-help"
-              value={isbn}
-              onChange={(event) => setISBN(event.target.value.toUpperCase())}
-              placeholder="978 979 3930 15 2"
-            />
-            <button
-              type="button"
-              className="isbn-x"
-              aria-label="Add final X to an ISBN-10"
-              disabled={!/^\d{9}$/.test(isbn.toUpperCase().replace(/[^0-9X]/g, ""))}
-              onClick={appendISBN10X}
-            >
-              X
-            </button>
-            <button type="button" className="camera" aria-label="Scan barcode" onClick={() => setScannerOpen(true)}><Camera size={22} /></button>
-          </div>
-          <small id="isbn-help">No barcode? Type the ISBN printed in the book. Spaces and hyphens are accepted. If an ISBN-10 ends in X, tap the X key above. Then tap Search ISBN.</small>
-          <button className="search-button" type="submit" disabled={loading}>
-            {loading ? <LoaderCircle className="spin" size={20} /> : <Search size={20} />}
-            {loading ? "Searching catalogues…" : "Search ISBN"}
-          </button>
-        </form>
-        <div className="tests">
-          <span>Test:</span>
-          {TEST_ISBNS.map((value) => <button type="button" key={value} onClick={() => void lookup(value)}>{value}</button>)}
+        <p className="eyebrow">Mac workflow for Indonesian and older books</p>
+        <h1>Find the book.<br />Keep the right edition.</h1>
+        <p className="intro">Search by ISBN when one exists. Search by title and verify the physical book when it does not.</p>
+        <div className="mode-switch" role="tablist" aria-label="Choose book search method">
+          <button type="button" role="tab" aria-selected={mode === "isbn"} className={mode === "isbn" ? "active" : ""} onClick={() => switchMode("isbn")}>Book has ISBN</button>
+          <button type="button" role="tab" aria-selected={mode === "no-isbn"} className={mode === "no-isbn" ? "active" : ""} onClick={() => switchMode("no-isbn")}>No ISBN</button>
         </div>
-        <aside className="recovery-guide" aria-label="What to do when ISBN lookup finds no record">
-          <span className="recovery-label">If no ISBN match appears</span>
-          <strong>Confirm the title here. Complete the record on Mac.</strong>
-          <p>Check the official Perpusnas ISBN database first. If it identifies the book, note the exact title, then open ISBN to Zotero Mac and search by title. Check WorldCat only if Perpusnas also has no record.</p>
-        </aside>
+        {mode === "isbn" ? (
+          <>
+            <form className="search-card" onSubmit={submit}>
+              <label htmlFor="isbn">ISBN or barcode number</label>
+              <div className="isbn-row">
+                <input
+                  ref={isbnInputRef}
+                  id="isbn"
+                  inputMode="numeric"
+                  enterKeyHint="search"
+                  autoComplete="off"
+                  autoCapitalize="characters"
+                  spellCheck={false}
+                  aria-describedby="isbn-help"
+                  value={isbn}
+                  onChange={(event) => setISBN(event.target.value.toUpperCase())}
+                  placeholder="978 979 3930 15 2"
+                />
+                <button
+                  type="button"
+                  className="isbn-x"
+                  aria-label="Add final X to an ISBN-10"
+                  disabled={!/^\d{9}$/.test(isbn.toUpperCase().replace(/[^0-9X]/g, ""))}
+                  onClick={appendISBN10X}
+                >
+                  X
+                </button>
+                <button type="button" className="camera" aria-label="Scan barcode" onClick={() => setScannerOpen(true)}><Camera size={22} /></button>
+              </div>
+              <small id="isbn-help">Type or scan the ISBN. Spaces and hyphens are accepted. For an ISBN-10 ending in X, use the X key.</small>
+              <button className="search-button" type="submit" disabled={loading}>
+                {loading ? <LoaderCircle className="spin" size={20} /> : <Search size={20} />}
+                {loading ? "Searching catalogues…" : "Search ISBN"}
+              </button>
+            </form>
+            <div className="tests">
+              <span>Test:</span>
+              {TEST_ISBNS.map((value) => <button type="button" key={value} onClick={() => void lookup(value)}>{value}</button>)}
+            </div>
+          </>
+        ) : (
+          <form className="search-card no-isbn-search" onSubmit={submitBookSearch}>
+            <div className="query-grid">
+              <label className="wide" htmlFor="book-title">
+                <span>Title from the title page</span>
+                <input ref={titleInputRef} id="book-title" autoComplete="off" value={bookQuery.title} onChange={(event) => setBookQuery({ ...bookQuery, title: event.target.value })} placeholder="Enter the printed title" />
+              </label>
+              <label htmlFor="book-author">
+                <span>Author</span>
+                <input id="book-author" autoComplete="off" value={bookQuery.author} onChange={(event) => setBookQuery({ ...bookQuery, author: event.target.value })} placeholder="Optional but useful" />
+              </label>
+              <label htmlFor="book-publisher">
+                <span>Publisher</span>
+                <input id="book-publisher" autoComplete="off" value={bookQuery.publisher} onChange={(event) => setBookQuery({ ...bookQuery, publisher: event.target.value })} placeholder="Optional" />
+              </label>
+              <label htmlFor="book-year">
+                <span>Year</span>
+                <input id="book-year" inputMode="numeric" autoComplete="off" value={bookQuery.year} onChange={(event) => setBookQuery({ ...bookQuery, year: event.target.value.replace(/[^0-9]/g, "").slice(0, 4) })} placeholder="Optional" />
+              </label>
+            </div>
+            <small>Use the title page, not promotional text on the cover. Search old and modern spelling separately when necessary.</small>
+            <button className="search-button" type="submit" disabled={loading}>
+              {loading ? <LoaderCircle className="spin" size={20} /> : <Search size={20} />}
+              {loading ? "Searching catalogues…" : "Search without ISBN"}
+            </button>
+            <button className="manual-link" type="button" onClick={openManualEntry}>No catalogue search? Enter a verified physical-book record</button>
+          </form>
+        )}
       </section>
 
       {notice ? (
@@ -571,7 +770,7 @@ export default function Home() {
       {loading ? (
         <section className="loading-panel" aria-live="polite">
           <div className="orbit"><BookOpen size={28} /></div>
-          <h2>Checking the identifier and catalogues</h2>
+          <h2>{mode === "isbn" ? "Checking the identifier and catalogues" : "Searching catalogues by title"}</h2>
           <p>Indonesia OneSearch, Open Library, and Google Books are searched independently.</p>
           <div className="progress"><span /></div>
         </section>
@@ -581,13 +780,13 @@ export default function Home() {
         <section className="results" aria-live="polite">
           <div className="result-head">
             <div>
-              <p className="eyebrow">ISBN {resolution.canonical || resolution.raw_input}</p>
-              <h2>{resultTitle(resolution.state)}</h2>
+              <p className="eyebrow">{mode === "isbn" ? `ISBN ${resolution.canonical || resolution.raw_input}` : "Search without ISBN"}</p>
+              <h2>{resultTitle(resolution.state, mode)}</h2>
               <p>{resolution.state_message || resolution.validation_message}</p>
             </div>
             <div className="result-tools">
-              {resolution.valid ? <span className="valid"><ShieldCheck size={17} /> Valid ISBN</span> : null}
-              <button type="button" className="new-search" onClick={startNewSearch}><Search size={16} /> New ISBN search</button>
+              {resolution.valid ? <span className="valid">{mode === "isbn" ? <ShieldCheck size={17} /> : <Search size={17} />} {mode === "isbn" ? "Valid ISBN" : "Title search"}</span> : null}
+              <button type="button" className="new-search" onClick={startNewSearch}><Search size={16} /> New search</button>
             </div>
           </div>
           {resolution.source_statuses.length ? (
@@ -610,7 +809,7 @@ export default function Home() {
             <>
               <div className="instruction">
                 <BookOpen size={21} />
-                <div><strong>Match the copy in hand</strong><span>Check edition, year, publisher, and page count.</span></div>
+                <div><strong>Match the copy in hand</strong><span>{mode === "isbn" ? "Check edition, year, publisher, and page count." : "Check the title page, copyright page, edition or printing, publisher, year, and extent."}</span></div>
               </div>
               <div className="edition-grid">
                 {resolution.choices.map((book) => (
@@ -627,11 +826,19 @@ export default function Home() {
                   />
                 ))}
               </div>
+              {mode === "no-isbn" ? <button type="button" className="manual-after-results" onClick={openManualEntry}>None match the physical book. Enter it manually.</button> : null}
             </>
           ) : (
             <>
-              <div className="empty"><AlertTriangle size={24} /><div><strong>No record was generated.</strong><p>Missing metadata stays missing. Nothing was guessed.</p></div></div>
-              {resolution.valid ? <CatalogueFallback isbn={resolution.canonical || resolution.raw_input} /> : null}
+              <div className="empty">
+                <AlertTriangle size={24} />
+                <div>
+                  <strong>No record was generated.</strong>
+                  <p>Missing metadata stays missing. Nothing was guessed.</p>
+                  {mode === "no-isbn" ? <button type="button" className="manual-empty" onClick={openManualEntry}>Enter from the physical book</button> : null}
+                </div>
+              </div>
+              {mode === "isbn" && resolution.valid ? <CatalogueFallback isbn={resolution.canonical || resolution.raw_input} /> : null}
             </>
           )}
         </section>
@@ -639,14 +846,14 @@ export default function Home() {
 
       {!loading && !resolution ? (
         <section className="steps">
-          <article><span>01</span><strong>Validate</strong><p>Reject mistyped check digits before a catalogue request.</p></article>
-          <article><span>02</span><strong>Compare</strong><p>Keep source disagreements visible instead of silently choosing.</p></article>
-          <article><span>03</span><strong>Import</strong><p>Send the selected edition to Zotero Cloud or share RIS.</p></article>
+          <article><span>01</span><strong>Search</strong><p>Use ISBN when present. Otherwise search title, author, publisher, and year.</p></article>
+          <article><span>02</span><strong>Verify</strong><p>Keep source disagreements visible and match the physical copy.</p></article>
+          <article><span>03</span><strong>Import</strong><p>Check Zotero duplicates, then create or file the verified record.</p></article>
         </section>
       ) : null}
 
       <footer>
-        <p>On iPhone: Safari Share menu → <strong>Add to Home Screen</strong>.</p>
+        <p>Mac edition: ISBN search and no-ISBN catalogue recovery.</p>
         <p>No catalogue source is authoritative on its own.</p>
       </footer>
 
@@ -654,7 +861,7 @@ export default function Home() {
         <div className="action-dock">
           <div className="dock-meta">
             <div className="selection">
-              <span>{selectedBook ? "Selected edition" : "Selection required"}</span>
+              <span>{selectedBook ? (mode === "isbn" ? "Selected edition" : "Selected record") : "Selection required"}</span>
               <strong>{selectedBook ? editionLine(selectedBook) || selectedBook.title : "Match the physical book"}</strong>
             </div>
             <button
@@ -669,7 +876,7 @@ export default function Home() {
             </button>
           </div>
           <div className="actions">
-            <button type="button" className="new-isbn" onClick={startNewSearch}><Search size={19} /> New ISBN</button>
+            <button type="button" className="new-isbn" onClick={startNewSearch}><Search size={19} /> New search</button>
             <button type="button" className="ris" disabled={!selectedBook} onClick={() => void exportRIS()}><Download size={20} /> RIS</button>
             <button type="button" className="zotero" disabled={!selectedBook || sending} onClick={() => void addToZotero()}>
               {sending ? <LoaderCircle className="spin" size={20} /> : profile ? <ShieldCheck size={20} /> : <CloudUpload size={20} />}
@@ -758,6 +965,38 @@ export default function Home() {
         </div>
       ) : null}
 
+      {manualOpen ? (
+        <div className="backdrop" onMouseDown={(event) => { if (event.currentTarget === event.target) setManualOpen(false); }}>
+          <section className="setup-sheet manual-sheet" role="dialog" aria-modal="true" aria-labelledby="manual-title">
+            <div className="handle" />
+            <div className="setup-head">
+              <span className="key-icon"><BookOpen size={22} /></span>
+              <div><p className="eyebrow">No ISBN and no reliable match</p><h2 id="manual-title">Transcribe the physical book</h2></div>
+              <button type="button" aria-label="Close manual entry" onClick={() => setManualOpen(false)}><X size={22} /></button>
+            </div>
+            <p className="setup-copy">Use the title page and copyright page. Leave an uncertain field blank. Do not copy a guessed date or edition from another book.</p>
+            <form onSubmit={prepareManualRecord}>
+              <div className="manual-grid">
+                {MANUAL_FIELDS.map((field) => (
+                  <label className={field.wide ? "wide" : ""} key={field.key} htmlFor={`manual-${field.key}`}>
+                    <span>{field.label}{field.key === "title" ? " *" : ""}</span>
+                    <input
+                      id={`manual-${field.key}`}
+                      autoComplete="off"
+                      value={manualFields[field.key]}
+                      onChange={(event) => setManualFields({ ...manualFields, [field.key]: event.target.value })}
+                      placeholder={field.placeholder}
+                    />
+                  </label>
+                ))}
+              </div>
+              <p className="manual-help">Several authors, editors, or translators must be separated with semicolons. ISBN remains blank.</p>
+              <button type="submit" className="check-key">Prepare record for review</button>
+            </form>
+          </section>
+        </div>
+      ) : null}
+
       {scannerOpen ? (
         <div className="scanner" role="dialog" aria-modal="true" aria-label="Barcode scanner">
           <div className="scanner-head">
@@ -779,14 +1018,14 @@ export default function Home() {
               <div><p className="eyebrow">One-time setup</p><h2 id="setup-title">Connect Zotero Cloud</h2></div>
               <button type="button" aria-label="Close setup" onClick={() => setSetupOpen(false)}><X size={22} /></button>
             </div>
-            <p className="setup-copy">A personal Zotero API key allows direct creation from iPhone. It is sent only for Zotero checks and imports and is never stored by this app’s server.</p>
+            <p className="setup-copy">A personal Zotero API key allows direct creation from this Mac. It is sent only for Zotero checks and imports and is never stored by this app’s server.</p>
             <a href="https://www.zotero.org/settings/keys/new" target="_blank" rel="noreferrer">Create a Zotero key <ExternalLink size={16} /></a>
-            <p className="key-help">Name it “ISBN to Zotero” and enable personal library write access.</p>
+            <p className="key-help">Name it “ISBN to Zotero - iMac”. Enable personal library access and write access. Leave notes and groups disabled.</p>
             <label htmlFor="api-key">Zotero API key</label>
             <input id="api-key" className="key-input" type="password" autoComplete="off" value={apiKey} onChange={(event) => setAPIKey(event.target.value.trim())} placeholder="Paste the private key" />
             <label className="remember">
               <input type="checkbox" checked={remember} onChange={(event) => setRemember(event.target.checked)} />
-              <span><strong>Remember on this iPhone</strong><small>Recommended only for a private device. Safari stores the key locally.</small></span>
+              <span><strong>Remember on this Mac</strong><small>Recommended only for a private device. The Mac web app stores the key locally.</small></span>
             </label>
             <button type="button" className="check-key" disabled={!apiKey || checking} onClick={() => void checkZotero()}>
               {checking ? <LoaderCircle className="spin" size={20} /> : <ShieldCheck size={20} />}

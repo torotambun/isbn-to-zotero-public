@@ -8,8 +8,14 @@
 | TypeScript/Bun suite | 19 pass |
 | TypeScript strict type check | Pass |
 | TypeScript production bundle | Pass |
-| Sanitized Mobile v7 lint and build | Pass |
-| Sanitized Mobile v7 deterministic tests | 9 pass |
+| Verified Mobile v8 source build, artifact validation, and lint | Pass |
+| Verified Mobile v8 source tests | 11 pass |
+| Verified Mac v3 source build, artifact validation, and lint | Pass |
+| Verified Mac v3 source tests | 15 pass |
+| Sanitized Mobile v8 derivative build, artifact validation, and lint | Pass |
+| Sanitized Mobile v8 derivative tests | 14 pass |
+| Sanitized Mac v3 derivative build, artifact validation, and lint | Pass |
+| Sanitized Mac v3 derivative tests | 16 pass |
 | Repository policy and credential scan | Pass |
 
 The tests cover ISBN validation and conversion, manifestation separation, RIS output, distinct-source confidence, physical-confirmation enforcement, local Zotero token shape, duplicate protection, cache migration, source defaults, pacing, and local HTTP routes.
@@ -34,10 +40,18 @@ cd ../mobile
 npm run install:ci
 npm test
 npm run lint
+
+cd ../mac
+npm run install:ci
+npm test
+npm run lint
 ```
 
-Mobile tests use local simulated fetch responses for catalogue and Zotero Web
-API behavior. They do not contain a key or write to a normal library.
+Mobile and Mac Site tests use local simulated fetch responses for catalogue and
+Zotero Web API behavior. They do not contain a real key or write to a normal
+library. The Perpusnas suites preserve the four reported Indonesian ISBNs, the
+exact link format, Perpusnas-before-WorldCat order, non-automatic wording,
+iPhone-to-Mac title recovery, and separate Site identities.
 
 ## Remaining desktop-distribution acceptance
 

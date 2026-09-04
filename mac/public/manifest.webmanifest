@@ -1,0 +1,13 @@
+{
+  "name": "ISBN to Zotero Mac",
+  "short_name": "Book → Zotero",
+  "description": "Find Indonesian and older books with or without ISBNs, verify editions, and add records to Zotero.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5efe3",
+  "theme_color": "#f5efe3",
+  "icons": [
+    { "src": "/app-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" },
+    { "src": "/app-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

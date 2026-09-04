@@ -11,9 +11,9 @@ This repository contains source code only. It does not distribute a compiled mac
 | `@types/node` | 26.2.0 | Development type definitions | MIT |
 | `undici-types` | 8.3.0 | Transitive development type definitions | MIT |
 | Python | 3.10+ | Runtime for the Python implementation | Python Software Foundation License |
-| Node.js | 22.13+ | Runtime for the Mobile reference build and tests | MIT |
-| React and React DOM | 19.2.6 | Mobile reference interface | MIT |
-| Next.js | 16.2.6 | Mobile reference application framework | MIT |
+| Node.js | 22.13+ | Runtime for the Mobile and Mac Site reference builds and tests | MIT |
+| React and React DOM | 19.2.6 | Mobile and Mac Site reference interfaces | MIT |
+| Next.js | 16.2.6 | Mobile and Mac Site reference application framework | MIT |
 | Vinext | 0.0.50 | Vite-compatible Next.js runtime | MIT |
 | `@zxing/browser` | 0.2.1 | In-browser barcode scanning | MIT |
 | Lucide React | 1.31.0 | Interface icons | ISC |
@@ -41,7 +41,7 @@ The experimental desktop build can compile the Bun runtime into a standalone exe
 ## External services
 
 The project can communicate with Indonesia OneSearch, Open Library, Google
-Books, WorldCat, the Zotero local API, and the Zotero Web API. These services,
+Books, Perpusnas ISBN, WorldCat, the Zotero local API, and the Zotero Web API. These services,
 APIs, and returned data are governed by their own terms; the project’s MIT
 License does not license third-party data or services.
 
@@ -49,4 +49,5 @@ License does not license third-party data or services.
 - Zotero local API: <https://www.zotero.org/support/dev/web_api/v3/local_api>
 - Zotero Web API: <https://www.zotero.org/support/dev/web_api/v3/start>
 - Google Books API terms and branding: <https://developers.google.com/books/terms> and <https://developers.google.com/books/branding>
+- Perpusnas ISBN catalogue: <https://isbn.perpusnas.go.id/>
 - WorldCat terms: <https://www.oclc.org/en/policies.html>

@@ -25,7 +25,15 @@ flowchart TD
     C -->|Yes| E[Search valid equivalent forms]
     E --> F[Retain only matching source records]
     F --> G{Result state}
-    G -->|none| H[Manual recovery workflow]
+    G -->|none| H[Open Perpusnas ISBN browser check]
+    H --> I0{Perpusnas record?}
+    I0 -->|Yes| I1[Copy the exact title]
+    I0 -->|No| I2[Open WorldCat browser check]
+    I2 -->|record| I1
+    I2 -->|no record| I4[Use verified physical-book transcription in Mac]
+    I1 --> I3[Continue with Mac title search]
+    I3 --> L
+    I4 --> L
     G -->|different titles| I[Choose using physical title page]
     G -->|several manifestations| J[Match edition, printing, year, publisher, extent]
     G -->|one weak candidate| K[Review conflicts]
@@ -45,7 +53,13 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    A[No usable ISBN or no verified catalogue match] --> B[Read title and copyright pages]
+    A[No usable ISBN or no automatic catalogue match] --> P[Check Perpusnas first]
+    P -->|record| PT[Copy exact title]
+    P -->|no record| W[Check WorldCat second]
+    W -->|record| PT
+    W -->|no record| B
+    PT --> MT[Open Mac No ISBN and search by title]
+    MT --> B[Read title and copyright pages]
     B --> C[Transcribe title and responsibility]
     B --> D[Transcribe publisher, place, and date]
     B --> E[Keep edition and printing separate]
@@ -60,6 +74,11 @@ flowchart TD
     J --> K[Check Zotero for a duplicate]
     K --> L[Create or import only after confirmation]
 ```
+
+Perpusnas is separate from Indonesia OneSearch and is not an automatic
+metadata source. Neither Perpusnas nor WorldCat imports a record automatically.
+WorldCat RIS import is an exceptional final option after the Mac title-recovery
+route.
 
 ## Human verification checklist
 

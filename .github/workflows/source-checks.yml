@@ -58,3 +58,19 @@ jobs:
         run: npm test
       - working-directory: mobile
         run: npm run lint
+
+  mac-site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: mac/package-lock.json
+      - working-directory: mac
+        run: npm ci
+      - working-directory: mac
+        run: npm test
+      - working-directory: mac
+        run: npm run lint

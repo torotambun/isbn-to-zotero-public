@@ -16,13 +16,11 @@ test("builds the official WorldCat ISBN deep link", () => {
   );
 });
 
-test("keeps WorldCat behind the Perpusnas and Mac recovery workflow", async () => {
+test("keeps WorldCat behind the Perpusnas recovery check", async () => {
   const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
-  assert.match(page, /If no ISBN match appears/);
   assert.match(page, /Check Perpusnas first/);
-  assert.match(page, /official Indonesian ISBN record/);
-  assert.match(page, /then open ISBN to Zotero Mac and search by title/);
   assert.match(page, /Check WorldCat only if Perpusnas also has no record/);
+  assert.match(page, /Neither page imports metadata automatically/);
   assert.match(page, /Check WorldCat catalogue/);
   assert.match(page, /target="_blank"/);
 });

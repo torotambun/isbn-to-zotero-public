@@ -1,0 +1,13 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Non-secret localStorage key names"
+targetRules = ["generic-api-key"]
+paths = ['''(^|/)app/page\.tsx$''']
+regexes = [
+  '''isbn-zotero-key-v1''',
+  '''isbn-zotero-profile-v1''',
+  '''isbn-zotero-collection-v1''',
+  '''isbn-zotero-collection-path-v1''',
+]

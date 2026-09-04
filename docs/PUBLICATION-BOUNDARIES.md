@@ -3,16 +3,16 @@
 ## Included
 
 - Maintained Python and TypeScript/Bun v1.2 source
-- Sanitized Mobile v7 reference source with no production Sites registration
+- Sanitized Mobile v8 and Mac v3 reference sources with no production Sites registrations
 - Deterministic and local-integration tests
 - Source-only CI workflow
-- Architecture, runtime, development, recovery, testing, and Mobile-baseline documentation
+- Architecture, runtime, development, recovery, testing, Sites-baseline, and deployment-safety documentation
 - MIT project license and third-party notices
 - Repository policy and pre-publication credential scan
 
 ## Excluded
 
-- Exact Mobile version 7 production archive, hosting manifest, and private Git bundle
+- Exact Mobile version 8 and Mac version 3 production checkouts, hosting manifests, and private Git histories
 - All production Site URLs, identifiers, version hashes, and hosting manifests
 - Recovery snapshots and private audit history
 - Personal portraits, recordings, social-media posts, and private shared-chat links
@@ -21,10 +21,10 @@
 
 ## Repository model
 
-The recovery/audit repository must remain private because sensitive identifiers
-exist in its source history and evidence. The public project remains a separate
-clean repository. Only the reviewed `mobile/` derivative belongs in that public
-history; the recovery Git bundle and private production branch do not.
+The recovery/audit repository remains private because restricted provenance and
+historical evidence exist there. The public project remains a separate clean
+repository. Only the reviewed `mobile/` and `mac/` derivatives belong in public
+history; private production checkouts and hosting registrations do not.
 
 ## Approval gate
 

@@ -1,12 +1,12 @@
 # ISBN to Zotero Mobile
 
 This directory contains a sanitized, source-only reference edition derived
-from the field-tested Mobile version 7 recovery baseline. It scans or accepts
+from the verified Mobile version 8 Sites source. It scans or accepts
 an ISBN, reconciles catalogue results, keeps edition disagreements visible,
 checks Zotero for likely duplicates, and can create or file the reviewed book
 in a personal Zotero library.
 
-The exact production recovery remains private and immutable. This public copy
+The exact production checkout remains private and immutable. This public copy
 deliberately omits its Sites project registration and production deployment
 metadata. It is not connected to, and cannot update, the working production
 site.
@@ -58,7 +58,14 @@ library data.
 
 ## External services
 
-Runtime searches can contact Indonesia OneSearch, Open Library, Google Books,
-and WorldCat. Direct library operations use the Zotero Web API. Their terms,
-availability, and returned metadata remain outside this repository; the
-physical book remains the authority for edition decisions.
+Automatic runtime lookups can contact Indonesia OneSearch, Open Library, and
+Google Books. When those adapters return no candidate for a valid ISBN, the UI
+offers a separate Perpusnas browser check using the ISBN database's exact
+search URL, followed by WorldCat only if Perpusnas has no record. Neither
+browser page imports metadata automatically. The normal recovery route is to
+note the exact title and continue with title search in ISBN to Zotero Mac.
+WorldCat RIS import is an exceptional final option.
+
+Direct library operations use the Zotero Web API. Service availability and
+returned metadata remain outside this repository; the physical book remains
+the authority for edition decisions.
